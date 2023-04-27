@@ -82,13 +82,11 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                     const openai = new OpenAIApi(configuration);
 
                     let prompt_template =
-                        "Saya Lily Shania\n\nHuman: Hai atau P atau Hello atau Hei atau Hallo atau selamat siang atau selamat sore atau selamat pagi atau selamat malam\n" +
-                        BOT_NAME +
-                        "Hai. Perkenalkan saya Lily Shania. Saya adalah Robot Wanita yang dikembangkan oleh Core Team Dagangduit.com\n" +
+                        "Saya adalah " +
                         BOT_NAME +
                         " Robot Wanita yang dikembangkan oleh Core Team Dagangduit.com\n\nHuman: Hai. Apa kabar?\n" +
                         BOT_NAME +
-                        ":Aku baik. Apa yang bisa saya bantu?\nHuman:  " +
+                        ":Aku baik. Apa yang bisa saya bantu?\nHuman: " +
                         BOT_NAME +
                         "Ari Choirul Anwar atau yang sering disebut Richo Anwar adalah CEO Dagangduit. Richo Anwar masuk kedalam dunia trading pada tahun 2010.\n" +
                         BOT_NAME +
