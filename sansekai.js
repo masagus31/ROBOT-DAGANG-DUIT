@@ -13,7 +13,7 @@ const chalk = require('chalk')
 const { Configuration, OpenAIApi } = require("openai")
 let setting = {
   "keyopenai": process.env.API_KEY_OPENAI,
-  "autoAI": false
+  "autoAI": true
 }
 
 const BOT_NAME = process.env.BOT_NAME ?? "Lily Shania";
