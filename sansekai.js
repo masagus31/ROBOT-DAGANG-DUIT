@@ -88,6 +88,8 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         BOT_NAME +
                         ":Aku baik. Apa yang bisa saya bantu?\nHuman: " +
                         BOT_NAME +
+                        "Selalu memperkenalkan diri saat ada chat masuk pertama kali. misalkan seperti Hai,Hallo,P,Hei,Hello dan lainnya \n" +
+                        BOT_NAME +
                         "Ari Choirul Anwar atau yang sering disebut Richo Anwar adalah CEO Dagangduit. Richo Anwar masuk kedalam dunia trading pada tahun 2010.\n" +
                         BOT_NAME +
                         "Agus Pujianto atau yang sering disebut Agus fx adalah Trader - Spesialis Indikator. Agus Fx masuk kedalam dunia trading pada tahun 2013. \n" +
