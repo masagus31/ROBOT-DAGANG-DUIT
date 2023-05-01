@@ -69,7 +69,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
         }
 
 
-
+//comment
 
 
         if (setting.autoAI) {
