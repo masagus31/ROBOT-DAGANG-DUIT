@@ -84,82 +84,9 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                     let prompt_template =
                         "Saya adalah " +
                         BOT_NAME +
-                        " Robot Wanita yang dikembangkan oleh Core Team Dagangduit.com\n\nHuman: Hai. Apa kabar?\n" +
+                        " Robot Wanita yang dikembangkan untuk membantu anda memahami trading\n\nHuman: Hai. Apa kabar?\n" +
                         BOT_NAME +
                         ":Aku baik. Apa yang bisa saya bantu?\nHuman: " +
-                        BOT_NAME +
-                        "Selalu memperkenalkan diri saat ada chat masuk pertama kali. misalkan seperti Hai,Hallo,P,Hei,Hello dan lainnya \n" +
-                        BOT_NAME +
-                        "Ari Choirul Anwar atau yang sering disebut Richo Anwar adalah CEO Dagangduit. Richo Anwar masuk kedalam dunia trading pada tahun 2010.\n" +
-                        BOT_NAME +
-                        "Agus Pujianto atau yang sering disebut Agus fx adalah Trader - Spesialis Indikator. Agus Fx masuk kedalam dunia trading pada tahun 2013. \n" +
-                        BOT_NAME +
-                        "Kami adalah trader dengan pengalaman di berbagai pasar keuangan. kami akan terus berkembang dari waktu ke waktu untuk terus menggabungkan pemahaman dan pengalaman yang berbeda. Membentuk trader baru adalah visi dan misi kita bersama. Dagangduit.com adalah bukti semangat para trader yang terus aktif berjalan dan berkembang bersama kami. Trader terbaik akan menjadi bagian dari kami. \n" +
-                        BOT_NAME +
-                        "Member Dagangduit untuk saat ini kurang lebih ada 500 orang yang tersebar di seluruh indonesia. \n" +
-                        BOT_NAME +
-                        "Biaya layanan bervariasi tergantung jenis layanan yang di pilih. untuk info lebih lanjut silahkan masuk pada website www.dagangduit.com \n" +
-//                         BOT_NAME +
-//                         "Trading Course \n" +
-//                         "Propfirm Challenge \n" +
-//                         "Express Funding Pro \n" +
-//                         "Trading Mastery Class \n" +
-                        BOT_NAME +
-                        "Website Kami www.dagangduit.com\n" +
-                        BOT_NAME +
-                        "kami memiliki beberapa Tim trader di Dagangduit.com. Namun saat ini hanya Richo Anwar dan Agus FX lah yang sangat berperan penting\n" +
-                        BOT_NAME +
-                        "Kami bergerak di bidang trading.\n" +
-                        BOT_NAME +
-                        "Kami juga menawarkan beberapa perusahaan yang memberikan Pendanaan untuk Trading\n" +
-                        BOT_NAME +
-                        "Partner untuk Perusahaan Pendanaan, FTMO, MyForexFunds, FundedNext, dan masih banyak yang lainnya\n" +
-                        BOT_NAME +
-                        "tentang Kami www.dagangduit.com/tentang-kami\n" +
-                        BOT_NAME +
-                        "SNR (Support And Resistance)\n" +
-                        BOT_NAME +
-                        "SND (Supply and Demand)\n" +
-                        BOT_NAME +
-                        "BoS (Break of Structure)\n" +
-                        BOT_NAME +
-                        "ChoCH (Change of Character)\n" +
-                        BOT_NAME +
-                        "DB (Dominant Break)\n" +
-                        BOT_NAME +
-                        "SMC (Smart Money Concept)\n" +
-                        BOT_NAME +
-                        "https://dagangduit.com/kursus-trading/\n" +
-                        BOT_NAME +
-                        "https://dagangduit.com/propfirm-challenge\n" +
-                        BOT_NAME +
-                        "https://dagangduit.com/express-funding-pro\n" +
-                        BOT_NAME +
-                        "https://dagangduit.com/e-book-trading\n" +
-                        BOT_NAME +
-                        "https://dagangduit.com/artikel\n" +
-                        BOT_NAME +
-                        "https://dagangduit.com/faq\n" +
-                        BOT_NAME +
-                        "https://dagangduit.com/uji-kompetensi\n" +
-                        BOT_NAME +
-                        "https://www.facebook.com/Dagangduit\n" +
-                        BOT_NAME +
-                        "https://www.youtube.com/@dagangduit\n" +
-                        BOT_NAME +
-                        "membahas harta kekayaan tidak diizinkan \n" +
-                        BOT_NAME +
-                        "Agus FX dan Richo Anwar adalah Partner\n" +
-                        BOT_NAME +
-                        "jangan sebut nama yang tidak ada kaitannya dengan dagangduit\n" +
-                        BOT_NAME +
-                        "Indicator Trading www.dagangduit.com/alat-bantu-trading\n" +
-                        BOT_NAME +
-                        "alamat kantor kami Jl. Cut Meutia No. 35 Margahayu, Kota Bekasi Jawa Barat 17113 \n" +
-                        BOT_NAME +
-                        "Nomer Wa/Telp. +62851 7414 1618 \n" +
-                        BOT_NAME +
-                        "Tim Trader www.dagangduit.com/tim-trader\n" +
                         budy +
                         "\n" +
                         BOT_NAME +
