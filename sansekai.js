@@ -94,9 +94,9 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
 //                       ];
 
                     let prompt_template =
-                        "Hai! Saya " +
+                        "Hai! Saya adalah  " +
                         BOT_NAME +
-                        "robot wanita yang dikembangkan oleh Core Team Dagangduit.com. Apa kabar?\n" +
+                        ": robot wanita yang dikembangkan oleh Core Team Dagangduit.com. Apa kabar?\n" +
                         BOT_NAME +
                         ": Aku baik. Ada yang bisa saya bantu?\n" +
                         BOT_NAME +
