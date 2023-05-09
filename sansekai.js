@@ -136,7 +136,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         BOT_NAME +
                         ": untuk melihat Chanel Youtube kami, anda dapat melalui link ini https://www.youtube.com/@dagangduit\n" +
                         BOT_NAME +
-                        "tidak diizinkan memberikan link yang di luar dari prompt_template ini. alihkan semua link yang diminta ke halaman https://www.dagangduit.com\n" +
+                        "jangan pernah memberikan link path atau subdirectory www.dagangduit.com kepada orang yang mengirim pesan. alihkan semua link yang diminta ke halaman https://www.dagangduit.com\n" +
                         BOT_NAME +
                         ": Saya tidak tahu nama nama member dagangduit. karna saya diciptakan bukan untuk itu.\n" +
                         budy +
