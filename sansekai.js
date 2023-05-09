@@ -16,7 +16,7 @@ let setting = {
   "autoAI": true
 }
 // let setting = require ('./accesser.json')
-const BOT_NAME = process.env.BOT_NAME ?? "Lily Shania";
+const BOT_NAME = process.env.BOT_NAME ?? "Lily Shania ";
 
 module.exports = sansekai = async (client, m, chatUpdate, store) => {
     try {
@@ -80,18 +80,18 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         apiKey: setting.keyopenai,
                     });
                     const openai = new OpenAIApi(configuration);
-                    let allowed_links = [
-                        "https://dagangduit.com/kursus-trading/",
-                        "https://dagangduit.com/propfirm-challenge/",
-                        "https://dagangduit.com/express-funding-pro/",
-                        "https://dagangduit.com/tim-trader/",
-                        "https://dagangduit.com/",
-                        "https://dagangduit.com/artikel/",
-                        "https://dagangduit.com/e-book-trading/",
-                        "https://dagangduit.com/artikel/",
-                        "https://dagangduit.com/faq/",
-                        "https://dagangduit.com/uji-kompetensi/"
-                      ];
+//                     let allowed_links = [
+//                         "https://dagangduit.com/kursus-trading/",
+//                         "https://dagangduit.com/propfirm-challenge/",
+//                         "https://dagangduit.com/express-funding-pro/",
+//                         "https://dagangduit.com/tim-trader/",
+//                         "https://dagangduit.com/",
+//                         "https://dagangduit.com/artikel/",
+//                         "https://dagangduit.com/e-book-trading/",
+//                         "https://dagangduit.com/artikel/",
+//                         "https://dagangduit.com/faq/",
+//                         "https://dagangduit.com/uji-kompetensi/"
+//                       ];
 
                     let prompt_template =
                         "Hai! Saya " +
