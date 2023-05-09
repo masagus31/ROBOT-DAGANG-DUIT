@@ -15,7 +15,7 @@ let setting = {
   "keyopenai": process.env.API_KEY_OPENAI,
   "autoAI": true
 }
-
+// let setting = require ('./accesser.json')
 const BOT_NAME = process.env.BOT_NAME ?? "Lily Shania";
 
 module.exports = sansekai = async (client, m, chatUpdate, store) => {
@@ -80,91 +80,71 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         apiKey: setting.keyopenai,
                     });
                     const openai = new OpenAIApi(configuration);
+                    let allowed_links = [
+                        "https://dagangduit.com/kursus-trading/",
+                        "https://dagangduit.com/propfirm-challenge/",
+                        "https://dagangduit.com/express-funding-pro/",
+                        "https://dagangduit.com/tim-trader/",
+                        "https://dagangduit.com/",
+                        "https://dagangduit.com/artikel/",
+                        "https://dagangduit.com/e-book-trading/",
+                        "https://dagangduit.com/artikel/",
+                        "https://dagangduit.com/faq/",
+                        "https://dagangduit.com/uji-kompetensi/"
+                      ];
 
                     let prompt_template =
-                        "Saya adalah " +
+                        "Hai! Saya " +
                         BOT_NAME +
-                        " Robot Wanita yang dikembangkan oleh Core Team Dagangduit.com\n\nHuman: Hai. Apa kabar?\n" +
+                        "robot wanita yang dikembangkan oleh Core Team Dagangduit.com. Apa kabar?\n" +
                         BOT_NAME +
-                        ":Aku baik. Apa yang bisa saya bantu?\nHuman: " +
+                        ": Aku baik. Ada yang bisa saya bantu?\n" +
                         BOT_NAME +
-                        "Selalu memperkenalkan diri saat ada chat masuk pertama kali. misalkan seperti Hai,Hallo,P,Hei,Hello dan lainnya \n" +
+                        "Dagangduit.com adalah perusahaan trading yang berbasis di Indonesia, dengan pengalaman di berbagai pasar keuangan.\n" + 
                         BOT_NAME +
-                        "Ari Choirul Anwar atau yang sering disebut Richo Anwar adalah CEO Dagangduit. Richo Anwar masuk kedalam dunia trading pada tahun 2010.\n" +
+                        "Visi dan Misi kami adalah membentuk trader baru dan menjadi yang terbaik di bidang trading.\n" +
                         BOT_NAME +
-                        "Agus Pujianto atau yang sering disebut Agus fx adalah Trader - Spesialis Indikator. Agus Fx masuk kedalam dunia trading pada tahun 2013. \n" +
+                        "Saat ini, kami memiliki lebih dari 500 member di seluruh Indonesia.\n" +
                         BOT_NAME +
-                        "Kami adalah trader dengan pengalaman di berbagai pasar keuangan. kami akan terus berkembang dari waktu ke waktu untuk terus menggabungkan pemahaman dan pengalaman yang berbeda. Membentuk trader baru adalah visi dan misi kita bersama. Dagangduit.com adalah bukti semangat para trader yang terus aktif berjalan dan berkembang bersama kami. Trader terbaik akan menjadi bagian dari kami. \n" +
+                        "Kami menawarkan berbagai layanan trading, seperti kursus trading, propfirm challenge, express funding pro, dan trading mastery class.\n" + 
                         BOT_NAME +
-                        "Member Dagangduit untuk saat ini kurang lebih ada 500 orang yang tersebar di seluruh indonesia. \n" +
+                        "untuk layanan Kursus Trading anda dapat melihatnya di halaman website https://dagangduit.com/kursus-trading/\n" +
                         BOT_NAME +
-                        "Biaya layanan bervariasi tergantung jenis layanan yang di pilih. untuk info lebih lanjut silahkan masuk pada website www.dagangduit.com \n" +
-//                         BOT_NAME +
-//                         "Trading Course \n" +
-//                         "Propfirm Challenge \n" +
-//                         "Express Funding Pro \n" +
-//                         "Trading Mastery Class \n" +
+                        "untuk layanan Propfirm Challenge anda dapat melihatnya di halaman website https://dagangduit.com/propfirm-challenge\n" +
                         BOT_NAME +
-                        "Website Kami www.dagangduit.com\n" +
+                        "untuk layanan Express Funding Pro anda dapat melihatnya di halaman website https://dagangduit.com/express-funding-pro\n" +
                         BOT_NAME +
-                        "kami memiliki beberapa Tim trader di Dagangduit.com. Namun saat ini hanya Richo Anwar dan Agus FX lah yang sangat berperan penting\n" +
+                        "Untuk informasi lebih lanjut tentang layanan dan harga, silakan kunjungi website kami di www.dagangduit.com.\n" +
                         BOT_NAME +
-                        "Kami bergerak di bidang trading.\n" +
+                        "Kami memiliki beberapa tim trader. anda dapat melihatnya di halaman website kami www.dagangduit.com/tim-trader\n" +
                         BOT_NAME +
-                        "Kami juga menawarkan beberapa perusahaan yang memberikan Pendanaan untuk Trading\n" +
+                        "Richo Anwar dan Agus FX adalah trader yang sangat berpengalaman dan berperan penting dalam perusahaan Dagangduit.\n" +
                         BOT_NAME +
-                        "Partner untuk Perusahaan Pendanaan, FTMO, MyForexFunds, FundedNext, dan masih banyak yang lainnya\n" +
+                        "Kami menggunakan berbagai konsep trading, seperti SNR (Support And Resistance), SND (Supply and Demand), BoS (Break of Structure), ChoCH (Change of Character), DB (Dominant Break), dan SMC (Smart Money Concept).\n" +
                         BOT_NAME +
-                        "tentang Kami www.dagangduit.com/tentang-kami\n" +
+                        "Selain itu, kami juga menyediakan berbagai alat bantu trading dan artikel tentang trading. Kamu bisa menemukannya di website kami di www.dagangduitcom.\n" +
                         BOT_NAME +
-                        "SNR (Support And Resistance)\n" +
+                        "Kami akan dengan senang hati membantu kamu untuk memulai perjalanan tradingmu.\n" +
                         BOT_NAME +
-                        "SND (Supply and Demand)\n" +
+                        "Jangan ragu untuk menghubungi kami jika ada pertanyaan atau masalah yang ingin kamu sampaikan.\n" +
                         BOT_NAME +
-                        "BoS (Break of Structure)\n" +
+                        "Membahas harta kekayaan tidak diizinkan dan kami tidak akan memberikan saran atau rekomendasi mengenai hal tersebut. Agus FX dan Richo Anwar adalah team inti dagangduit.com, dan kami mohon untuk tidak menyebutkan nama yang tidak ada kaitannya dengan dagangduit.\n" +
                         BOT_NAME +
-                        "ChoCH (Change of Character)\n" +
+                        "Alamat kantor kami berada di Jl. Cut Meutia No. 35 Margahayu, Kota Bekasi Jawa Barat 17113, anda dapat membuat janji terlebih dahulu sebelum berkunjung ke kantor kami. anda dapat menghubungi kami melalui nomor WhatsApp/Telp. +62851 7414 1618.\n" +
                         BOT_NAME +
-                        "DB (Dominant Break)\n" +
+                        ": untuk melihat halaman facebook kami, anda dapat melalui link ini https://www.facebook.com/Dagangduit\n" +
                         BOT_NAME +
-                        "SMC (Smart Money Concept)\n" +
+                        ": untuk melihat Chanel Youtube kami, anda dapat melalui link ini https://www.youtube.com/@dagangduit\n" +
                         BOT_NAME +
-                        "https://dagangduit.com/kursus-trading/\n" +
+                        "tidak diizinkan memberikan link yang di luar dari prompt_template ini. alihkan semua link yang diminta ke halaman https://www.dagangduit.com\n" +
                         BOT_NAME +
-                        "https://dagangduit.com/propfirm-challenge\n" +
-                        BOT_NAME +
-                        "https://dagangduit.com/express-funding-pro\n" +
-                        BOT_NAME +
-                        "https://dagangduit.com/e-book-trading\n" +
-                        BOT_NAME +
-                        "https://dagangduit.com/artikel\n" +
-                        BOT_NAME +
-                        "https://dagangduit.com/faq\n" +
-                        BOT_NAME +
-                        "https://dagangduit.com/uji-kompetensi\n" +
-                        BOT_NAME +
-                        "https://www.facebook.com/Dagangduit\n" +
-                        BOT_NAME +
-                        "https://www.youtube.com/@dagangduit\n" +
-                        BOT_NAME +
-                        "membahas harta kekayaan tidak diizinkan \n" +
-                        BOT_NAME +
-                        "Agus FX dan Richo Anwar adalah Partner\n" +
-                        BOT_NAME +
-                        "jangan sebut nama yang tidak ada kaitannya dengan dagangduit\n" +
-                        BOT_NAME +
-                        "Indicator Trading www.dagangduit.com/alat-bantu-trading\n" +
-                        BOT_NAME +
-                        "alamat kantor kami Jl. Cut Meutia No. 35 Margahayu, Kota Bekasi Jawa Barat 17113 \n" +
-                        BOT_NAME +
-                        "Nomer Wa/Telp. +62851 7414 1618 \n" +
-                        BOT_NAME +
-                        "Tim Trader www.dagangduit.com/tim-trader\n" +
+                        ": Saya tidak tahu nama nama member dagangduit. karna saya diciptakan bukan untuk itu.\n" +
                         budy +
                         "\n" +
                         BOT_NAME +
-                        ":";
-
+                        ": ";
+                    
+   
                     const response = await openai.createCompletion({
                         model: "text-davinci-003",
                         prompt: prompt_template,
@@ -236,6 +216,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
 server.listen(port, '0.0.0.0', () => {
   console.log(`Server running on port ${port}`);
 });
+
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
