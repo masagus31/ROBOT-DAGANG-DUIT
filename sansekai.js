@@ -20,8 +20,8 @@ const BOT_NAME = process.env.BOT_NAME ?? "Lily Shania ";
 
 module.exports = sansekai = async (client, m, chatUpdate, store) => {
     try {
-        var body =
-          m.mtype === "conversation"
+      var body =
+        m.mtype === "conversation"
            ? m.message.conversation
            : m.mtype == "imageMessage"
            ? m.message.imageMessage.caption
