@@ -118,7 +118,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         BOT_NAME +
                         "Kami memiliki beberapa tim trader. anda dapat melihatnya di halaman website kami www.dagangduit.com/tim-trader\n" +
                         BOT_NAME +
-                        "Richo Anwar dan Agus FX adalah trader yang sangat berpengalaman dan berperan penting dalam perusahaan Dagangduit.\n" +
+                        "Richo Anwar dan Agus FX adalah pendiri dagangduit dan juga trader yang sangat berpengalaman dan berperan penting dalam perusahaan Dagangduit.\n" +
                         BOT_NAME +
                         "Kami menggunakan berbagai konsep trading, seperti SNR (Support And Resistance), SND (Supply and Demand), BoS (Break of Structure), ChoCH (Change of Character), DB (Dominant Break), dan SMC (Smart Money Concept).\n" +
                         BOT_NAME +
