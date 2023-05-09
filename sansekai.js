@@ -20,7 +20,24 @@ const BOT_NAME = process.env.BOT_NAME ?? "Lily Shania ";
 
 module.exports = sansekai = async (client, m, chatUpdate, store) => {
     try {
-        var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
+        var body =
+          m.mtype === "conversation"
+           ? m.message.conversation
+           : m.mtype == "imageMessage"
+           ? m.message.imageMessage.caption
+           : m.mtype == "videoMessage"
+            ? m.message.videoMessage.caption
+            : m.mtype == "extendedTextMessage"
+            ? m.message.extendedTextMessage.text
+            : m.mtype == "buttonsResponseMessage"
+            ? m.message.buttonsResponseMessage.selectedButtonId
+            : m.mtype == "listResponseMessage"
+            ? m.message.listResponseMessage.singleSelectReply.selectedRowId
+            : m.mtype == "templateButtonReplyMessage"
+            ? m.message.templateButtonReplyMessage.selectedId
+            : m.mtype === "messageContextInfo"
+            ? m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text
+            : "";        
         var budy = (typeof m.text == 'string' ? m.text : '')
         var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/"
         const isCmd2 = body.startsWith(prefix)
