@@ -38,7 +38,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
             : m.mtype === "messageContextInfo"
             ? m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text
             : "";        
-        var budy = (typeof m.text == 'string' ? m.text : '')
+        var budy = typeof m.text == "string" ? m.text : "";
         var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/"
         const isCmd2 = body.startsWith(prefix)
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
