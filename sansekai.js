@@ -39,51 +39,64 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
             ? m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text
             : "";        
         var budy = typeof m.text == "string" ? m.text : "";
-        var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/"
-        const isCmd2 = body.startsWith(prefix)
-        const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
-        const args = body.trim().split(/ +/).slice(1)
-        const pushname = m.pushName || "No Name"
-        const botNumber = await client.decodeJid(client.user.id)
-        const itsMe = m.sender == botNumber ? true : false
-        let text = q = args.join(" ")
-        const arg = budy.trim().substring(budy.indexOf(' ') + 1)
-        const arg1 = arg.trim().substring(arg.indexOf(' ') + 1)
+        // var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/"
+        var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/";
+        const isCmd2 = body.startsWith(prefix);
+        const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
+        const args = body.trim().split(/ +/).slice(1);
+        const pushname = m.pushName || "No Name";
+        const botNumber = await client.decodeJid(client.user.id);
+        const itsMe = m.sender == botNumber ? true : false;
+        let text = (q = args.join(" "));
+        const arg = budy.trim().substring(budy.indexOf(" ") + 1);
+        const arg1 = arg.trim().substring(arg.indexOf(" ") + 1);
 
-        console.log(m);
-    
-        const from = m.chat
-        const reply = m.reply
-        const sender = m.sender
-        const mek = chatUpdate.messages[0]
+        const from = m.chat;
+        const reply = m.reply;
+        const sender = m.sender;
+        const mek = chatUpdate.messages[0];
 
         const color = (text, color) => {
-            return !color ? chalk.green(text) : chalk.keyword(color)(text)
-        }
+          return !color ? chalk.green(text) : chalk.keyword(color)(text);
+        };
 
         // Group
-        const groupMetadata = m.isGroup ? await client.groupMetadata(m.chat).catch(e => { }) : ''
-        const groupName = m.isGroup ? groupMetadata.subject : ''
+        const groupMetadata = m.isGroup ? await client.groupMetadata(m.chat).catch((e) => {}) : "";
+        const groupName = m.isGroup ? groupMetadata.subject : "";
 
         // Push Message To Console
-        let argsLog = (budy.length > 30) ? `${q.substring(0, 30)}...` : budy
+        let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
+
 
         if (setting.autoAI) {
             // Push Message To Console && Auto Read
             if (argsLog && !m.isGroup) {
-                // client.sendReadReceipt(m.chat, m.sender, [m.key.id])
-                console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`))
-            } else if (argsLog && m.isGroup) {
-                // client.sendReadReceipt(m.chat, m.sender, [m.key.id])
-                console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`), chalk.blueBright('IN'), chalk.green(groupName))
+              console.log(chalk.black(chalk.bgWhite("[ LOGS ]")), color(argsLog, "turquoise"), chalk.magenta("From"), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`));
+            } else if (isCmd2 && m.isGroup) {
+              console.log(
+                chalk.black(chalk.bgWhite("[ LOGS ]")),
+                color(argsLog, "turquoise"),
+                chalk.magenta("From"),
+                chalk.green(pushname),
+                chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`),
+                chalk.blueBright("IN"),
+                chalk.green(groupName)
+              );
             }
         } else if (!setting.autoAI) {
             if (isCmd2 && !m.isGroup) {
-                console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`))
+              console.log(chalk.black(chalk.bgWhite("[ LOGS ]")), color(argsLog, "turquoise"), chalk.magenta("From"), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`));
             } else if (isCmd2 && m.isGroup) {
-                console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`), chalk.blueBright('IN'), chalk.green(groupName))
+              console.log(
+                chalk.black(chalk.bgWhite("[ LOGS ]")),
+                color(argsLog, "turquoise"),
+                chalk.magenta("From"),
+                chalk.green(pushname),
+                chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`),
+                chalk.blueBright("IN"),
+                chalk.green(groupName)
+              );
             }
-        }
 
 
 //comment
@@ -163,18 +176,28 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                     
    
                     const response = await openai.createCompletion({
-                        model: "text-davinci-003",
-                        prompt: prompt_template,
-                        temperature: 0.9,
-                        max_tokens: 3000,
-                        top_p: 1,
-                        frequency_penalty: 0.0,
-                        presence_penalty: 0.6,
+//                         model: "text-davinci-003",
+//                         prompt: prompt_template,
+//                         temperature: 0.9,
+//                         max_tokens: 3000,
+//                         top_p: 1,
+//                         frequency_penalty: 0.0,
+//                         presence_penalty: 0.6,
+//                     });
+                    model: "gpt-3.5-turbo",
+                    messages: [{role: "user", content: text}],
                     });
-                    m.reply(`${response.data.choices[0].text}\n\n`)
-                } catch (err) {
-                    console.log(err)
-                    m.reply('Server kami sedang sibuk')
+                    m.reply(`${response.data.choices[0].message.content}`);
+                    } catch (err) {
+                    if (err.response) {
+                      console.log(err.response.status);
+                      console.log(err.response.data);
+                       console.log(`${err.response.status}\n\n${err.response.data}`);
+                    } else {
+                    console.log(err);
+                    m.reply("Maaf, sepertinya ada yang error :"+ err.message);
+                    }
+                  }
                 }
             }
         }
