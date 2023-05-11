@@ -33,7 +33,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
         const arg = budy.trim().substring(budy.indexOf(' ') + 1)
         const arg1 = arg.trim().substring(arg.indexOf(' ') + 1)
 
-        console.log(m);
+        //console.log(m);
     
         const from = m.chat
         const reply = m.reply
@@ -148,7 +148,6 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                     const response = await openai.createCompletion({
                         model: "text-davinci-003",
                         prompt: prompt_template,
-                        allowed: allowed_links,
                         temperature: 0.9,
                         max_tokens: 3000,
                         top_p: 1,
