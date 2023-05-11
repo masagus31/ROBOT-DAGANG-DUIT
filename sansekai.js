@@ -165,7 +165,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
         if (!setting.autoAI) {
             if (isCmd2) {
                 switch (command) {
-                    case 'ai':
+                    case 'ai': case "openai"
                         try {
                             if (setting.keyopenai === 'process.env.API_KEY_OPENAI') return reply('Api key has not been filled in\n\nPlease fill in the apikey first in the key.json file\n\nThe apikey can be created in website: https://beta.openai.com/account/api-keys')
                             if (!text) return reply(`Chat dengan AI.\n\nContoh:\n${prefix}${command} Apa itu resesi`)
@@ -216,9 +216,6 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
 server.listen(port, '0.0.0.0', () => {
   console.log(`Server running on port ${port}`);
 });
-
-
-
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
