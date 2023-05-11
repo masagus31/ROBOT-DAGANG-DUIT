@@ -146,7 +146,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                     
    
                     const response = await openai.createCompletion({
-                        model: "text-davinci-003",
+                        model: "gpt-3.5-turbo",
                         prompt: prompt_template,
                         temperature: 0.9,
                         max_tokens: 3000,
@@ -173,9 +173,9 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                                 apiKey: setting.keyopenai,
                             });
                             const openai = new OpenAIApi(configuration);
-
+//"text-davinci-003",
                             const response = await openai.createCompletion({
-                                model: "text-davinci-003",
+                                model: "gpt-3.5-turbo", 
                                 prompt: text,
                                 temperature: 0.3,
                                 max_tokens: 3000,
