@@ -16,87 +16,57 @@ let setting = {
   "autoAI": true
 }
 // let setting = require ('./accesser.json')
-const BOT_NAME = process.env.BOT_NAME ?? "Lily Shania ";
+const BOT_NAME = process.env.BOT_NAME ?? "Lily Shania";
 
 module.exports = sansekai = async (client, m, chatUpdate, store) => {
     try {
-      var body =
-        m.mtype === "conversation"
-           ? m.message.conversation
-           : m.mtype == "imageMessage"
-           ? m.message.imageMessage.caption
-           : m.mtype == "videoMessage"
-            ? m.message.videoMessage.caption
-            : m.mtype == "extendedTextMessage"
-            ? m.message.extendedTextMessage.text
-            : m.mtype == "buttonsResponseMessage"
-            ? m.message.buttonsResponseMessage.selectedButtonId
-            : m.mtype == "listResponseMessage"
-            ? m.message.listResponseMessage.singleSelectReply.selectedRowId
-            : m.mtype == "templateButtonReplyMessage"
-            ? m.message.templateButtonReplyMessage.selectedId
-            : m.mtype === "messageContextInfo"
-            ? m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text
-            : "";        
-        var budy = typeof m.text == "string" ? m.text : "";
-        // var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/"
-        var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/";
-        const isCmd2 = body.startsWith(prefix);
-        const command = body.replace(prefix, "").trim().split(/ +/).shift().toLowerCase();
-        const args = body.trim().split(/ +/).slice(1);
-        const pushname = m.pushName || "No Name";
-        const botNumber = await client.decodeJid(client.user.id);
-        const itsMe = m.sender == botNumber ? true : false;
-        let text = (q = args.join(" "));
-        const arg = budy.trim().substring(budy.indexOf(" ") + 1);
-        const arg1 = arg.trim().substring(arg.indexOf(" ") + 1);
+        var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
+        var budy = (typeof m.text == 'string' ? m.text : '')
+        var prefix = /^[\\/!#.]/gi.test(body) ? body.match(/^[\\/!#.]/gi) : "/"
+        const isCmd2 = body.startsWith(prefix)
+        const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
+        const args = body.trim().split(/ +/).slice(1)
+        const pushname = m.pushName || "No Name"
+        const botNumber = await client.decodeJid(client.user.id)
+        const itsMe = m.sender == botNumber ? true : false
+        let text = q = args.join(" ")
+        const arg = budy.trim().substring(budy.indexOf(' ') + 1)
+        const arg1 = arg.trim().substring(arg.indexOf(' ') + 1)
 
-        const from = m.chat;
-        const reply = m.reply;
-        const sender = m.sender;
-        const mek = chatUpdate.messages[0];
+        console.log(m);
+    
+        const from = m.chat
+        const reply = m.reply
+        const sender = m.sender
+        const mek = chatUpdate.messages[0]
 
         const color = (text, color) => {
-          return !color ? chalk.green(text) : chalk.keyword(color)(text);
-        };
+            return !color ? chalk.green(text) : chalk.keyword(color)(text)
+        }
 
         // Group
-        const groupMetadata = m.isGroup ? await client.groupMetadata(m.chat).catch((e) => {}) : "";
-        const groupName = m.isGroup ? groupMetadata.subject : "";
+        const groupMetadata = m.isGroup ? await client.groupMetadata(m.chat).catch(e => { }) : ''
+        const groupName = m.isGroup ? groupMetadata.subject : ''
 
         // Push Message To Console
-        let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
-
+        let argsLog = (budy.length > 30) ? `${q.substring(0, 30)}...` : budy
 
         if (setting.autoAI) {
             // Push Message To Console && Auto Read
             if (argsLog && !m.isGroup) {
-              console.log(chalk.black(chalk.bgWhite("[ LOGS ]")), color(argsLog, "turquoise"), chalk.magenta("From"), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`));
-            } else if (isCmd2 && m.isGroup) {
-              console.log(
-                chalk.black(chalk.bgWhite("[ LOGS ]")),
-                color(argsLog, "turquoise"),
-                chalk.magenta("From"),
-                chalk.green(pushname),
-                chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`),
-                chalk.blueBright("IN"),
-                chalk.green(groupName)
-              );
+                // client.sendReadReceipt(m.chat, m.sender, [m.key.id])
+                console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`))
+            } else if (argsLog && m.isGroup) {
+                // client.sendReadReceipt(m.chat, m.sender, [m.key.id])
+                console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`), chalk.blueBright('IN'), chalk.green(groupName))
             }
         } else if (!setting.autoAI) {
             if (isCmd2 && !m.isGroup) {
-              console.log(chalk.black(chalk.bgWhite("[ LOGS ]")), color(argsLog, "turquoise"), chalk.magenta("From"), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`));
+                console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`))
             } else if (isCmd2 && m.isGroup) {
-              console.log(
-                chalk.black(chalk.bgWhite("[ LOGS ]")),
-                color(argsLog, "turquoise"),
-                chalk.magenta("From"),
-                chalk.green(pushname),
-                chalk.yellow(`[ ${m.sender.replace("@s.whatsapp.net", "")} ]`),
-                chalk.blueBright("IN"),
-                chalk.green(groupName)
-              );
+                console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`), chalk.blueBright('IN'), chalk.green(groupName))
             }
+        }
 
 
 //comment
@@ -110,18 +80,18 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         apiKey: setting.keyopenai,
                     });
                     const openai = new OpenAIApi(configuration);
-//                     let allowed_links = [
-//                         "https://dagangduit.com/kursus-trading/",
-//                         "https://dagangduit.com/propfirm-challenge/",
-//                         "https://dagangduit.com/express-funding-pro/",
-//                         "https://dagangduit.com/tim-trader/",
-//                         "https://dagangduit.com/",
-//                         "https://dagangduit.com/artikel/",
-//                         "https://dagangduit.com/e-book-trading/",
-//                         "https://dagangduit.com/artikel/",
-//                         "https://dagangduit.com/faq/",
-//                         "https://dagangduit.com/uji-kompetensi/"
-//                       ];
+                    let allowed_links = [
+                        "https://dagangduit.com/kursus-trading/",
+                        "https://dagangduit.com/propfirm-challenge/",
+                        "https://dagangduit.com/express-funding-pro/",
+                        "https://dagangduit.com/tim-trader/",
+                        "https://dagangduit.com/",
+                        "https://dagangduit.com/artikel/",
+                        "https://dagangduit.com/e-book-trading/",
+                        "https://dagangduit.com/artikel/",
+                        "https://dagangduit.com/faq/",
+                        "https://dagangduit.com/uji-kompetensi/"
+                      ];
 
                     let prompt_template =
                         "Hai! Saya adalah  " +
@@ -130,74 +100,63 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         BOT_NAME +
                         ": Aku baik. Ada yang bisa saya bantu?\n" +
                         BOT_NAME +
-                        "Dagangduit.com adalah perusahaan trading yang berbasis di Indonesia, dengan pengalaman di berbagai pasar keuangan.\n" + 
+                        ": Dagangduit.com adalah perusahaan trading yang berbasis di Indonesia, dengan pengalaman di berbagai pasar keuangan.\n" + 
                         BOT_NAME +
-                        "Visi dan Misi kami adalah membentuk trader baru dan menjadi yang terbaik di bidang trading.\n" +
+                        ": Visi dan Misi kami adalah membentuk trader baru dan menjadi yang terbaik di bidang trading.\n" +
                         BOT_NAME +
-                        "Saat ini, kami memiliki lebih dari 500 member di seluruh Indonesia.\n" +
+                        ": Saat ini, kami memiliki lebih dari 500 member di seluruh Indonesia.\n" +
                         BOT_NAME +
-                        "Kami menawarkan berbagai layanan trading, seperti kursus trading, propfirm challenge, express funding pro, dan trading mastery class.\n" + 
+                        ": Kami menawarkan berbagai layanan trading, seperti kursus trading, propfirm challenge, express funding pro, dan trading mastery class.\n" + 
                         BOT_NAME +
-                        "untuk layanan Kursus Trading anda dapat melihatnya di halaman website https://dagangduit.com/kursus-trading/\n" +
+                        ": untuk layanan Kursus Trading anda dapat melihatnya di halaman website https://dagangduit.com/kursus-trading/\n" +
                         BOT_NAME +
-                        "untuk layanan Propfirm Challenge anda dapat melihatnya di halaman website https://dagangduit.com/propfirm-challenge\n" +
+                        ": untuk layanan Propfirm Challenge anda dapat melihatnya di halaman website https://dagangduit.com/propfirm-challenge\n" +
                         BOT_NAME +
-                        "untuk layanan Express Funding Pro anda dapat melihatnya di halaman website https://dagangduit.com/express-funding-pro\n" +
+                        ": untuk layanan Express Funding Pro anda dapat melihatnya di halaman website https://dagangduit.com/express-funding-pro\n" +
                         BOT_NAME +
-                        "Untuk informasi lebih lanjut tentang layanan dan harga, silakan kunjungi website kami di www.dagangduit.com.\n" +
+                        ": Untuk informasi lebih lanjut tentang layanan dan harga, silakan kunjungi website kami di www.dagangduit.com.\n" +
                         BOT_NAME +
-                        "Kami memiliki beberapa tim trader. anda dapat melihatnya di halaman website kami www.dagangduit.com/tim-trader\n" +
+                        ": Kami memiliki beberapa tim trader. anda dapat melihatnya di halaman website kami www.dagangduit.com/tim-trader\n" +
                         BOT_NAME +
-                        "Richo Anwar (CEO) dan Agus FX (CTO) adalah trader yang sangat berpengalaman dan berperan penting dalam perusahaan Dagangduit.\n" +
+                        ": Richo Anwar (CEO) dan Agus FX (CTO) adalah trader yang sangat berpengalaman dan berperan penting dalam perusahaan Dagangduit.\n" +
                         BOT_NAME +
-                        "Kami menggunakan berbagai konsep trading, seperti SNR (Support And Resistance), SND (Supply and Demand), BoS (Break of Structure), ChoCH (Change of Character), DB (Dominant Break), dan SMC (Smart Money Concept).\n" +
+                        ": Kami menggunakan berbagai konsep trading, seperti SNR (Support And Resistance), SND (Supply and Demand), BoS (Break of Structure), ChoCH (Change of Character), DB (Dominant Break), dan SMC (Smart Money Concept).\n" +
                         BOT_NAME +
-                        "Selain itu, kami juga menyediakan berbagai alat bantu trading dan artikel tentang trading. Kamu bisa menemukannya di website kami di www.dagangduitcom.\n" +
+                        ": Selain itu, kami juga menyediakan berbagai alat bantu trading dan artikel tentang trading. Kamu bisa menemukannya di website kami di www.dagangduitcom.\n" +
                         BOT_NAME +
-                        "Kami akan dengan senang hati membantu kamu untuk memulai perjalanan tradingmu.\n" +
+                        ": Kami akan dengan senang hati membantu kamu untuk memulai perjalanan tradingmu.\n" +
                         BOT_NAME +
-                        "Jangan ragu untuk menghubungi kami jika ada pertanyaan atau masalah yang ingin kamu sampaikan.\n" +
+                        ": Jangan ragu untuk menghubungi kami jika ada pertanyaan atau masalah yang ingin kamu sampaikan.\n" +
                         BOT_NAME +
-                        "Membahas harta kekayaan tidak diizinkan dan kami tidak akan memberikan saran atau rekomendasi mengenai hal tersebut. Agus FX dan Richo Anwar adalah team inti dagangduit.com, dan kami mohon untuk tidak menyebutkan nama yang tidak ada kaitannya dengan dagangduit.\n" +
+                        ": Membahas harta kekayaan tidak diizinkan dan kami tidak akan memberikan saran atau rekomendasi mengenai hal tersebut. Agus FX dan Richo Anwar adalah team inti dagangduit.com, dan kami mohon untuk tidak menyebutkan nama yang tidak ada kaitannya dengan dagangduit.\n" +
                         BOT_NAME +
-                        "Alamat kantor kami berada di Jl. Cut Meutia No. 35 Margahayu, Kota Bekasi Jawa Barat 17113, anda dapat membuat janji terlebih dahulu sebelum berkunjung ke kantor kami. anda dapat menghubungi kami melalui nomor WhatsApp/Telp. +62851 7414 1618.\n" +
+                        ": Alamat kantor kami berada di Jl. Cut Meutia No. 35 Margahayu, Kota Bekasi Jawa Barat 17113, anda dapat membuat janji terlebih dahulu sebelum berkunjung ke kantor kami. anda dapat menghubungi kami melalui nomor WhatsApp/Telp. +62851 7414 1618.\n" +
                         BOT_NAME +
                         ": untuk melihat halaman facebook kami, anda dapat melalui link ini https://www.facebook.com/Dagangduit\n" +
                         BOT_NAME +
                         ": untuk melihat Chanel Youtube kami, anda dapat melalui link ini https://www.youtube.com/@dagangduit\n" +
                         BOT_NAME +
-                        "jangan pernah memberikan link path atau subdirectory www.dagangduit.com kepada orang yang mengirim pesan. alihkan semua link yang diminta ke halaman https://www.dagangduit.com\n" +
+                        ": jangan pernah memberikan link path atau subdirectory www.dagangduit.com kepada orang yang mengirim pesan. alihkan semua link yang diminta ke halaman https://www.dagangduit.com\n" +
                         BOT_NAME +
                         ": Saya tidak tahu nama nama member dagangduit. karna saya diciptakan bukan untuk itu.\n" +
                         budy +
                         "\n" +
                         BOT_NAME +
                         ": ";
-                    
    
                     const response = await openai.createCompletion({
-//                         model: "text-davinci-003",
-//                         prompt: prompt_template,
-//                         temperature: 0.9,
-//                         max_tokens: 3000,
-//                         top_p: 1,
-//                         frequency_penalty: 0.0,
-//                         presence_penalty: 0.6,
-//                     });
-                    model: "gpt-3.5-turbo",
-                    messages: [{role: "user", content: text}],
+                        model: "text-davinci-003",
+                        prompt: prompt_template,
+                        temperature: 0.9,
+                        max_tokens: 3000,
+                        top_p: 1,
+                        frequency_penalty: 0.0,
+                        presence_penalty: 0.6,
                     });
-                    m.reply(`${response.data.choices[0].message.content}`);
-                    } catch (err) {
-                    if (err.response) {
-                      console.log(err.response.status);
-                      console.log(err.response.data);
-                       console.log(`${err.response.status}\n\n${err.response.data}`);
-                    } else {
-                    console.log(err);
-                    m.reply("Maaf, sepertinya ada yang error :"+ err.message);
-                    }
-                  }
+                    m.reply(`${response.data.choices[0].text}\n\n`)
+                } catch (err) {
+                    console.log(err)
+                    m.reply('Server kami sedang sibuk')
                 }
             }
         }
@@ -216,6 +175,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
 
                             const response = await openai.createCompletion({
                                 model: "text-davinci-003",
+                                allowed: allowed_links,
                                 prompt: text,
                                 temperature: 0.3,
                                 max_tokens: 3000,
@@ -253,9 +213,11 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
     }
 }
 
-server.listen(port, '0.0.0.0', () => {
-  console.log(`Server running on port ${port}`);
-});
+// server.listen(port, '0.0.0.0', () => {
+//   console.log(`Server running on port ${port}`);
+// });
+
+
 
 
 let file = require.resolve(__filename)
