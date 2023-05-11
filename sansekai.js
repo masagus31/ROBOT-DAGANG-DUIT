@@ -145,7 +145,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                     m.reply(`${response.data.choices[0].text}\n\n`)
                 } catch (err) {
                     console.log(err)
-                    m.reply('Pertanyaan anda terlalu panjang mohon untuk mempersingkat pertanyaan anda.')
+                    m.reply('Maaf, saya tidak dapat menjawab pertanyaan yang terlalu panjang. Saya hanya dapat menjawab pertanyaan singkat saja. Ada yang bisa saya bantu lagi ?')
                 }
             }
         }
