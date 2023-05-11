@@ -213,9 +213,9 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
     }
 }
 
-// server.listen(port, '0.0.0.0', () => {
-//   console.log(`Server running on port ${port}`);
-// });
+server.listen(port, '0.0.0.0', () => {
+  console.log(`Server running on port ${port}`);
+});
 
 
 
