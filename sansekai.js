@@ -49,7 +49,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
         const groupName = m.isGroup ? groupMetadata.subject : ''
 
         // Push Message To Console
-        let argsLog = (budy.length > 30) ? `${q.substring(0, 30)}...` : budy
+        let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
 
         if (setting.autoAI) {
             // Push Message To Console && Auto Read
