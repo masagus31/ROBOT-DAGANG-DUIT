@@ -18,6 +18,19 @@ let setting = {
 // let setting = require ('./accesser.json')
 const BOT_NAME = process.env.BOT_NAME ?? "Lily Shania";
 
+let allowed_links = [
+  "https://dagangduit.com/kursus-trading/",
+  "https://dagangduit.com/propfirm-challenge/,
+  "https://dagangduit.com/express-funding-pro/",
+  "https://dagangduit.com/tim-trader/",
+  "https://dagangduit.com/",
+  "https://dagangduit.com/artikel/",
+  "https://dagangduit.com/e-book-trading/",
+  "https://dagangduit.com/artikel/",
+  "https://dagangduit.com/faq/",
+  "https://dagangduit.com/uji-kompetensi/"
+];
+
 module.exports = sansekai = async (client, m, chatUpdate, store) => {
     try {
         var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
@@ -80,19 +93,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         apiKey: setting.keyopenai,
                     });
                     const openai = new OpenAIApi(configuration);
-                    let allowed_links = [
-                        "https://dagangduit.com/kursus-trading/",
-                        "https://dagangduit.com/propfirm-challenge/",
-                        "https://dagangduit.com/express-funding-pro/",
-                        "https://dagangduit.com/tim-trader/",
-                        "https://dagangduit.com/",
-                        "https://dagangduit.com/artikel/",
-                        "https://dagangduit.com/e-book-trading/",
-                        "https://dagangduit.com/artikel/",
-                        "https://dagangduit.com/faq/",
-                        "https://dagangduit.com/uji-kompetensi/"
-                      ];
-
+                    
                     let prompt_template =
                         "Hai! Saya adalah  " +
                         BOT_NAME +
