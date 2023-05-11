@@ -143,40 +143,17 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         "\n" +
                         BOT_NAME +
                         ": ";
+                    
+
                     const response = await openai.createCompletion({
                         model: "text-davinci-003",
-                        prompt: `
-                          let allowed_links = [
-                            "https://dagangduit.com/kursus-trading/",
-                            "https://dagangduit.com/propfirm-challenge/",
-                            "https://dagangduit.com/express-funding-pro/",
-                            "https://dagangduit.com/tim-trader/",
-                            "https://dagangduit.com/",
-                            "https://dagangduit.com/artikel/",
-                            "https://dagangduit.com/e-book-trading/",
-                            "https://dagangduit.com/artikel/",
-                            "https://dagangduit.com/faq/",
-                            "https://dagangduit.com/uji-kompetensi/"
-                          ];
-                               
-                          ${prompt_template}
-                        `,
+                        prompt: prompt_template,
                         temperature: 0.9,
                         max_tokens: 3000,
                         top_p: 1,
                         frequency_penalty: 0.0,
                         presence_penalty: 0.6,
-                      });
-
-//                     const response = await openai.createCompletion({
-//                         model: "text-davinci-003",
-//                         prompt: prompt_template,
-//                         temperature: 0.9,
-//                         max_tokens: 3000,
-//                         top_p: 1,
-//                         frequency_penalty: 0.0,
-//                         presence_penalty: 0.6,
-//                     });
+                    });
                     m.reply(`${response.data.choices[0].text}\n\n`)
                 } catch (err) {
                     console.log(err)
