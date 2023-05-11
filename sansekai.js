@@ -146,7 +146,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                     
    
                     const response = await openai.createCompletion({
-                        model: "gpt-3.5-turbo",
+                        model: "text-davinci-003",
                         prompt: prompt_template,
                         temperature: 0.9,
                         max_tokens: 3000,
@@ -157,7 +157,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                     m.reply(`${response.data.choices[0].text}\n\n`)
                 } catch (err) {
                     console.log(err)
-                    m.reply('Server kami sedang sibuk')
+                    m.reply('Pertanyaan anda terlalu panjang mohon untuk mempersingkat pertanyaan anda.')
                 }
             }
         }
