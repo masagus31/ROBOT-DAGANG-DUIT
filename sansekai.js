@@ -71,10 +71,10 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
 
         if (setting.autoAI) {
             // Push Message To Console && Auto Read
-            if (isCmd2 && !m.isGroup) {
+            if (argsLog && !m.isGroup) {
                 // client.sendReadReceipt(m.chat, m.sender, [m.key.id])
                 console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`))
-            } else if (isCmd2 && m.isGroup) {
+            } else if (argsLog && m.isGroup) {
                 // client.sendReadReceipt(m.chat, m.sender, [m.key.id])
                 console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`), chalk.blueBright('IN'), chalk.green(groupName))
             }
