@@ -73,16 +73,40 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
             // Push Message To Console && Auto Read
             if (argsLog && !m.isGroup) {
                 // client.sendReadReceipt(m.chat, m.sender, [m.key.id])
-                console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`))
+                console.log(
+                  chalk.black(chalk.bgWhite('[ LOGS ]')), 
+                  color(argsLog, 'turquoise'), 
+                  chalk.magenta('From'), 
+                  chalk.green(pushname), 
+                  chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`))
             } else if (argsLog && m.isGroup) {
                 // client.sendReadReceipt(m.chat, m.sender, [m.key.id])
-                console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`), chalk.blueBright('IN'), chalk.green(groupName))
+                console.log(
+                  chalk.black(chalk.bgWhite('[ LOGS ]')), 
+                  color(argsLog, 'turquoise'), 
+                  chalk.magenta('From'), 
+                  chalk.green(pushname), 
+                  chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`), 
+                  chalk.blueBright('IN'), 
+                  chalk.green(groupName))
             }
         } else if (!setting.autoAI) {
             if (isCmd2 && !m.isGroup) {
-                console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`))
+                console.log(
+                  chalk.black(chalk.bgWhite('[ LOGS ]')), 
+                  color(argsLog, 'turquoise'), 
+                  chalk.magenta('From'), 
+                  chalk.green(pushname), 
+                  chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`))
             } else if (isCmd2 && m.isGroup) {
-                console.log(chalk.black(chalk.bgWhite('[ LOGS ]')), color(argsLog, 'turquoise'), chalk.magenta('From'), chalk.green(pushname), chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`), chalk.blueBright('IN'), chalk.green(groupName))
+                console.log(
+                  chalk.black(chalk.bgWhite('[ LOGS ]')), 
+                  color(argsLog, 'turquoise'), 
+                  chalk.magenta('From'), 
+                  chalk.green(pushname), 
+                  chalk.yellow(`[ ${m.sender.replace('@s.whatsapp.net', '')} ]`), 
+                  chalk.blueBright('IN'), 
+                  chalk.green(groupName))
             }
         }
 
@@ -214,10 +238,18 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                             if (!(budy.toLowerCase())) return
                             if (argsLog || isCmd2 && !m.isGroup) {
                                 // client.sendReadReceipt(m.chat, m.sender, [m.key.id])
-                                console.log(chalk.black(chalk.bgRed('[ ERROR ]')), color('command', 'turquoise'), color(argsLog, 'turquoise'), color('tidak tersedia', 'turquoise'))
+                                console.log(
+                                  chalk.black(chalk.bgRed('[ ERROR ]')), 
+                                  color('command', 'turquoise'), 
+                                  color(argsLog, 'turquoise'), 
+                                  color('tidak tersedia', 'turquoise'))
                             } else if (argsLog || isCmd2 && m.isGroup) {
                                 // client.sendReadReceipt(m.chat, m.sender, [m.key.id])
-                                console.log(chalk.black(chalk.bgRed('[ ERROR ]')), color('command', 'turquoise'), color(argsLog, 'turquoise'), color('tidak tersedia', 'turquoise'))
+                                console.log(
+                                  chalk.black(chalk.bgRed('[ ERROR ]')), 
+                                  color('command', 'turquoise'), 
+                                  color(argsLog, 'turquoise'), 
+                                  color('tidak tersedia', 'turquoise'))
                             }
                         }
                     }
@@ -233,9 +265,6 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
 server.listen(port, '0.0.0.0', () => {
   console.log(`Server running on port ${port}`);
 });
-
-
-
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
