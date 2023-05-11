@@ -175,7 +175,6 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
 
                             const response = await openai.createCompletion({
                                 model: "text-davinci-003",
-                                allowed: allowed_links,
                                 prompt: text,
                                 temperature: 0.3,
                                 max_tokens: 3000,
