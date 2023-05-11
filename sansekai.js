@@ -96,9 +96,9 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                     let prompt_template =
                         "Hai! Saya adalah  " +
                         BOT_NAME +
-                        ": robot wanita yang dikembangkan oleh Core Team Dagangduit.com. Apa kabar?\n" +
+                        "robot wanita yang dikembangkan oleh Core Team Dagangduit.com. Apa kabar?\n" +
                         BOT_NAME +
-                        ": Aku baik. Ada yang bisa saya bantu?\n" +
+                        "Aku baik. Ada yang bisa saya bantu?\n" +
                         BOT_NAME +
                         "Dagangduit.com adalah perusahaan trading yang berbasis di Indonesia, dengan pengalaman di berbagai pasar keuangan.\n" + 
                         BOT_NAME +
@@ -132,13 +132,13 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         BOT_NAME +
                         "Alamat kantor kami berada di Jl. Cut Meutia No. 35 Margahayu, Kota Bekasi Jawa Barat 17113, anda dapat membuat janji terlebih dahulu sebelum berkunjung ke kantor kami. anda dapat menghubungi kami melalui nomor WhatsApp/Telp. +62851 7414 1618.\n" +
                         BOT_NAME +
-                        ": untuk melihat halaman facebook kami, anda dapat melalui link ini https://www.facebook.com/Dagangduit\n" +
+                        "untuk melihat halaman facebook kami, anda dapat melalui link ini https://www.facebook.com/Dagangduit\n" +
                         BOT_NAME +
-                        ": untuk melihat Chanel Youtube kami, anda dapat melalui link ini https://www.youtube.com/@dagangduit\n" +
+                        "untuk melihat Chanel Youtube kami, anda dapat melalui link ini https://www.youtube.com/@dagangduit\n" +
                         BOT_NAME +
                         "jangan pernah memberikan link path atau subdirectory www.dagangduit.com kepada orang yang mengirim pesan. alihkan semua link yang diminta ke halaman https://www.dagangduit.com\n" +
                         BOT_NAME +
-                        ": Saya tidak tahu nama nama member dagangduit. karna saya diciptakan bukan untuk itu.\n" +
+                        "Saya tidak tahu nama nama member dagangduit. karna saya diciptakan bukan untuk itu.\n" +
                         budy +
                         "\n" +
                         BOT_NAME +
