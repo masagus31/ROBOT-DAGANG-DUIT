@@ -155,10 +155,19 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         presence_penalty: 0.6,
                     });
                     m.reply(`${response.data.choices[0].text}\n\n`)
-                } catch (err) {
-                    console.log(err)
-                    m.reply('Server kami sedang sibuk')
-                }
+                    } catch (error) {
+                    if (error.response) {
+                      console.log(error.response.status);
+                      console.log(error.response.data);
+                      console.log(`${error.response.status}\n\n${error.response.data}`);
+                    } else {
+                      console.log(error);
+                      m.reply("Maaf, sepertinya ada yang error :"+ error.message);
+                    }
+//                 } catch (err) {
+//                     console.log(err)
+//                     m.reply('Server kami sedang sibuk')
+//                 }
             }
         }
 
