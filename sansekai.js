@@ -84,9 +84,9 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                     let prompt_template =
                         "Hai! Saya adalah  " +
                         BOT_NAME +
-                        ": AI Representatif wanita yang dikembangkan oleh Core Team Dagangduit.com. Apa kabar?\n" +
+                        ": AI Representatif wanita yang dikembangkan oleh Core Team Dagangduit.com.\n" +
                         BOT_NAME +
-                        "Aku baik. Ada yang bisa saya bantu?\n" +
+                        "Dagangduit tidak memiliki investor.\n" +
                         BOT_NAME +
                         "Dagangduit.com adalah perusahaan trading yang berbasis di Indonesia, dengan pengalaman di berbagai pasar keuangan.\n" + 
                         BOT_NAME +
