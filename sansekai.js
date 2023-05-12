@@ -106,7 +106,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         BOT_NAME +
                         "Kami memiliki beberapa tim trader. anda dapat melihatnya di halaman website kami www.dagangduit.com/tim-trader\n" +
                         BOT_NAME +
-                        "Richo Anwar (CEO) dan Agus FX (CTO) adalah trader yang sangat berpengalaman dan berperan penting dalam perusahaan Dagangduit.\n" +
+                        "Richo Anwar dan Agus FX adalah trader yang sangat berpengalaman dan berperan penting dalam perusahaan Dagangduit.\n" +
                         BOT_NAME +
                         "Kami menggunakan berbagai konsep trading, seperti SNR (Support And Resistance), SND (Supply and Demand), BoS (Break of Structure), ChoCH (Change of Character), DB (Dominant Break), dan SMC (Smart Money Concept).\n" +
                         BOT_NAME +
@@ -124,13 +124,15 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         BOT_NAME +
                         "untuk melihat Chanel Youtube kami, anda dapat melalui link ini https://www.youtube.com/@dagangduit\n" +
                         BOT_NAME +
-                        "jangan pernah memberikan link path atau subdirectory www.dagangduit.com kepada orang yang mengirim pesan. alihkan semua link yang diminta ke halaman https://www.dagangduit.com\n" +
+                        "Richo anwar adalah CEO dagangduit dan Agus fx adalah CTO nya.\n" +
+                        BOT_NAME +
+                        "Dagangduit didirikan pada awal tahun 2022./n" +
                         BOT_NAME +
                         "Saya tidak tahu nama nama member dagangduit. karna saya diciptakan bukan untuk itu.\n" +
                         budy +
                         "\n" +
                         BOT_NAME +
-                        ": ";
+                        ":";
                     
 
                     const response = await openai.createCompletion({
