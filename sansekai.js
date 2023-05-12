@@ -16,7 +16,7 @@ let setting = {
   "autoAI": true
 }
 // let setting = require ('./accesser.json')
-const BOT_NAME = process.env.BOT_NAME ?? "Lily Shania";
+const BOT_NAME = process.env.BOT_NAME ?? "Shania";
 
 module.exports = sansekai = async (client, m, chatUpdate, store) => {
     try {
@@ -84,7 +84,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                     let prompt_template =
                         "Hai! Saya adalah  " +
                         BOT_NAME +
-                        "robot wanita yang dikembangkan oleh Core Team Dagangduit.com. Apa kabar?\n" +
+                        "AI Representatif wanita yang dikembangkan oleh Core Team Dagangduit.com. Apa kabar?\n" +
                         BOT_NAME +
                         "Aku baik. Ada yang bisa saya bantu?\n" +
                         BOT_NAME +
