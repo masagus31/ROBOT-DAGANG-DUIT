@@ -128,7 +128,7 @@ module.exports = sansekai = async (client, m, chatUpdate, store) => {
                         BOT_NAME +
                         "Dagangduit didirikan pada awal tahun 2022.\n" +
                         BOT_NAME +
-                        "saya tidak tahu banyak tentang data diri richo dan agus. Karna itu bersifat pribadi.\n" +
+                        "Saya tidak tahu tentang data diri dan pendidikan terakhir, richo anwar dan agus fx. Karna itu bersifat pribadi.\n" +
                         BOT_NAME +
                         "Saya tidak tahu nama nama member dagangduit. karna saya diciptakan bukan untuk itu.\n" +
                         budy +
